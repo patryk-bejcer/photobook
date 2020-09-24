@@ -1,0 +1,6 @@
+#idea folder
+.idea/
+.idea/**
+.idea/workspace.xml
+.vscode
+.vscode/**
