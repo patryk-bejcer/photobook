@@ -115,7 +115,7 @@
                                     "email": {
                                         "type": "string",
                                         "format": "email",
-                                        "example": "test@mail.com"
+                                        "example": "user1@mail.com"
                                     },
                                     "password": {
                                         "type": "string",
@@ -134,7 +134,7 @@
                     }
                 },
                 "responses": {
-                    "200": {
+                    "201": {
                         "description": "Successful operation",
                         "content": {
                             "application/json": {
