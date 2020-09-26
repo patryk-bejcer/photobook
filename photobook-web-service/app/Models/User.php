@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,21 +10,21 @@ use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
+ * App\Models\User
  *
- * @OA\Schema(
+ * @OA\Schema (
  * required={"password"},
- * @OA\Xml(name="User"),
- * @OA\Property(property="id", type="integer", readOnly="true", example="1"),
- * @OA\Property(property="name", type="string", readOnly="true", format="name", description="User name", example="John Smith"),
- * @OA\Property(property="email", type="string", readOnly="true", format="email", description="User unique email address", example="user@gmail.com"),
- * @OA\Property(property="email_verified_at", type="string", readOnly="true", format="date-time", description="Datetime marker of verification status", example="2019-02-25 12:59:20"),
- * @OA\Property(property="created_at", type="string", maxLength=32, example="2020-09-25T13:54:35.000000Z"),
- * @OA\Property(property="updated_at", type="string", maxLength=32, example="2020-09-25T13:54:35.000000Z"),
-
+ * @OA\Xml (name="User"),
+ * @OA\Property (property="id", type="integer", readOnly="true", example="1"),
+ * @OA\Property (property="name", type="string", readOnly="true", format="name", description="User name", example="John Smith"),
+ * @OA\Property (property="email", type="string", readOnly="true", format="email", description="User unique email address", example="user@gmail.com"),
+ * @OA\Property (property="email_verified_at", type="string", readOnly="true", format="date-time", description="Datetime marker of verification status", example="2019-02-25 12:59:20"),
+ * @OA\Property (property="created_at", type="string", maxLength=32, example="2020-09-25T13:54:35.000000Z"),
+ * @OA\Property (property="updated_at", type="string", maxLength=32, example="2020-09-25T13:54:35.000000Z"),
  * )
-**/
-class User extends Authenticatable implements JWTSubject
-{
+ *
+ */
+class User extends Authenticatable implements JWTSubject {
     use HasFactory, Notifiable;
 
     /**

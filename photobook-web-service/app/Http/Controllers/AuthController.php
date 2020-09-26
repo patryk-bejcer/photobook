@@ -111,7 +111,7 @@ class AuthController extends Controller {
      *       @OA\Property(property="password_confirmation", type="string", format="password", example="test123"),
      *    ),
      * ),
-     *      @OA\Response(
+     * @OA\Response(
      *          response=201,
      *          description="Successful operation",
      *     @OA\JsonContent(
@@ -129,6 +129,8 @@ class AuthController extends Controller {
      * )
      *
      * Register a User.
+     *
+     * @param Request $request
      *
      * @return JsonResponse
      * @throws ValidationException
