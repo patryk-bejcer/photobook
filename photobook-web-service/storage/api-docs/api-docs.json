@@ -1,0 +1,397 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Photobook API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Sign in",
+                "description": "Login by email, password",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user1@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "test123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "access_token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKOiJIUdpbiIsImlhdCI6MTYwMTA0NoEQ"
+                                        },
+                                        "token_type": {
+                                            "type": "string",
+                                            "example": "bearer"
+                                        },
+                                        "expires_in": {
+                                            "type": "integer",
+                                            "example": "3600"
+                                        },
+                                        "user": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sorry, wrong email address or password. Please try again"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Sign up",
+                "description": "Register by name, email, password",
+                "operationId": "authRegister",
+                "requestBody": {
+                    "description": "Pass register credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Smith"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user1@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "test123"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "test123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User successfully registered"
+                                        },
+                                        "user": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The name field is required."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Sign out",
+                "description": "Logout",
+                "operationId": "authLogout",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User successfully signed out"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/auth/refresh": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Refresh token",
+                "description": "Refresh JWT Token",
+                "operationId": "authRefresh",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "access_token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKOiJIUdpbiIsImlhdCI6MTYwMTA0NoEQ"
+                                        },
+                                        "token_type": {
+                                            "type": "string",
+                                            "example": "bearer"
+                                        },
+                                        "expires_in": {
+                                            "type": "integer",
+                                            "example": "3600"
+                                        },
+                                        "user": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/auth/user-profile": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Get user profile",
+                "description": "Get user profile details",
+                "operationId": "authUserProfile",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "user": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "required": [
+                    "password"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "description": "User name",
+                        "type": "string",
+                        "format": "name",
+                        "readOnly": "true",
+                        "example": "John Smith"
+                    },
+                    "email": {
+                        "description": "User unique email address",
+                        "type": "string",
+                        "format": "email",
+                        "readOnly": "true",
+                        "example": "user@gmail.com"
+                    },
+                    "email_verified_at": {
+                        "description": "Datetime marker of verification status",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": "true",
+                        "example": "2019-02-25 12:59:20"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "example": "2020-09-25T13:54:35.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "example": "2020-09-25T13:54:35.000000Z"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Login with JWT Token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
