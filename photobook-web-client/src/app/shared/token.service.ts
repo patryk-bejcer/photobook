@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -10,23 +10,24 @@ export class TokenService {
     register: 'http://127.0.0.1:8000/api/auth/register'
   }
 
-  constructor() { }
+  constructor() {
+  }
 
-  handleData(token){
+  handleData(token) {
     localStorage.setItem('auth_token', token);
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem('auth_token');
   }
 
   // Verify the token
-  isValidToken(){
+  isValidToken() {
     const token = this.getToken();
 
-    if(token){
+    if (token) {
       const payload = this.payload(token);
-      if(payload){
+      if (payload) {
         return Object.values(this.issuer).indexOf(payload.iss) > -1;
       }
     } else {
@@ -45,7 +46,7 @@ export class TokenService {
   }
 
   // Remove token
-  removeToken(){
+  removeToken() {
     localStorage.removeItem('auth_token');
   }
 
