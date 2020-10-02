@@ -1,1 +1,21 @@
-<p>{{title}}</p>
+<header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <!--  <span>HOME</span> -->
+      <span><a href="/">Logo</a></span>
+      <span class="spacer"></span>
+      <a mat-button routerLink="/profile" *ngIf="isSignedIn">
+        User Profile
+      </a>
+      <a mat-button routerLink="/register" *ngIf="!isSignedIn">
+        Register
+      </a>
+      <a mat-button routerLink="/login" *ngIf="!isSignedIn">
+        Login
+      </a>
+      <button mat-button (click)="signOut()" *ngIf="isSignedIn">Log out</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
+
+<router-outlet></router-outlet>

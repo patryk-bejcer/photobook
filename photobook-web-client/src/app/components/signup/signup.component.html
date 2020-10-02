@@ -1,0 +1,47 @@
+<!-- Errors -->
+<div *ngIf="errors?.name" class="alert alert-danger mt-3">
+  {{ errors?.name }}
+</div>
+<div *ngIf="errors?.email" class="alert alert-danger mt-3">
+  {{ errors?.email }}
+</div>
+<div *ngIf="errors?.password" class="alert alert-danger mt-3">
+  {{ errors?.password }}
+</div>
+<div *ngIf="errors?.password_confirmation" class="alert alert-danger mt-3">
+  {{ errors?.password_confirmation }}
+</div>
+
+<div class="auth-container">
+  <mat-card class="my-card">
+    <mat-card-title>
+      <h1>Sign up</h1>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <p>Please fill out all fields.</p>
+    </mat-card-subtitle>
+    <mat-card-content>
+      <form class="my-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width">
+          <mat-label>Your Name</mat-label>
+          <input  matInput  placeholder="First name" formControlName="name"  required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input  matInput  placeholder="Email" name="email" formControlName="email" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input  matInput  placeholder="Password"  formControlName="password" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Confirm Password</mat-label>
+          <input  matInput  placeholder="Confirm Password"  formControlName="password_confirmation" required>
+        </mat-form-field>
+        <mat-action-row class="full-width">
+          <button mat-raised-button color="primary">Register</button>
+        </mat-action-row>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

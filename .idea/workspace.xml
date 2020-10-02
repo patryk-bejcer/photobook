@@ -24,7 +24,16 @@
   <component name="ChangeListManager">
     <list default="true" id="7004b63e-2126-40bf-9d6f-c5119650b4a0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photobook-web-client/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/photobook-web-client/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photobook-web-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/photobook-web-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photobook-web-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/photobook-web-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photobook-web-client/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/photobook-web-client/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photobook-web-client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/photobook-web-client/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photobook-web-client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/photobook-web-client/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photobook-web-client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/photobook-web-client/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photobook-web-client/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/photobook-web-client/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photobook-web-client/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/photobook-web-client/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photobook-web-service/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/photobook-web-service/app/Http/Kernel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,11 +238,13 @@
     <property name="nodejs.mocha.mocha_node_package_dir" value="" />
     <property name="nodejs_interpreter_path" value="wsl://UBUNTU1804@/usr/bin/node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="ts.external.directory.path" value="C:\Work\www\photobook\photobook-web-client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Work\www\photobook\photobook-web-client\src\app" />
       <recent name="C:\Work\www\photobook\photobook-web-service\tests\Feature\API" />
     </key>
   </component>
@@ -320,6 +331,8 @@
       <workItem from="1600878083611" duration="129000" />
       <workItem from="1601040196419" duration="9870000" />
       <workItem from="1601051695467" duration="7699000" />
+      <workItem from="1601633740594" duration="19000" />
+      <workItem from="1601633772005" duration="12284000" />
     </task>
     <task id="LOCAL-00001" summary="Setup .gitignore.">
       <created>1600878858535</created>
@@ -398,6 +411,10 @@
     </state>
     <state x="466" y="0" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601110436891" />
     <state x="2503" y="6" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600878156587" />
+    <state x="2660" y="275" key="FileChooserDialogImpl" timestamp="1601633784586">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601633784586" />
     <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1601106734970">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -414,11 +431,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601106734970" />
-    <state x="369" y="115" key="SettingsEditor" timestamp="1601106753236">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2381" y="165" key="SettingsEditor" timestamp="1601633786786">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="369" y="115" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601106753236" />
-    <state x="2381" y="165" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600878136588" />
+    <state x="2381" y="165" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601633786786" />
     <state x="646" y="324" key="VCS.EditChangelistDialog" timestamp="1601046055903">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -427,10 +444,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601110439895" />
-    <state x="587" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600878760240">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2654" y="406" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601633854421">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1600878760240" />
+    <state x="2654" y="406" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601633854421" />
     <state x="480" y="149" width="576" height="526" key="find.popup" timestamp="1601045221475">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
