@@ -38,6 +38,7 @@ export class SigninComponent implements OnInit {
       },
       error => {
         this.errors = error.error;
+        console.log(this.errors)
       }, () => {
         this.authState.setAuthState(true);
         this.loginForm.reset()

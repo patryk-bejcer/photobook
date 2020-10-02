@@ -1,13 +1,14 @@
 <div class="auth-container">
   <mat-card class="my-card">
-    <!-- Errors -->
-    <mat-error *ngIf="errors?.error">
-      {{ errors?.error }}
-    </mat-error>
+
     <mat-card-title>
       <h1>Sign up</h1>
     </mat-card-title>
     <mat-card-content>
+      <!-- Errors -->
+      <mat-error *ngIf="errors?.error">
+        {{ errors?.error }}
+      </mat-error>
       <form class="my-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-form-field class="full-width">
           <mat-label>Email</mat-label>

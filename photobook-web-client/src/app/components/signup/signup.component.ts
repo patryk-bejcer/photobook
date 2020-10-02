@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {AuthService} from "../../shared/auth.service";
 
 @Component({
@@ -18,14 +18,15 @@ export class SignupComponent implements OnInit {
     public authService: AuthService
   ) {
     this.registerForm = this.fb.group({
-      name: [''],
-      email: [''],
-      password: [''],
-      password_confirmation: ['']
+      name: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      password_confirmation: new FormControl('', [Validators.required, Validators.minLength(6)]),
     })
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   onSubmit() {
     this.authService.register(this.registerForm.value).subscribe(
@@ -34,7 +35,13 @@ export class SignupComponent implements OnInit {
       },
       error => {
         this.errors = error.error;
-        console.log(error.error)
+        for (const fieldError in this.errors) {
+          if (this.errors[fieldError]) {
+            this.registerForm.controls[fieldError].setErrors(
+              {invalid: this.errors[fieldError]['message']}
+            );
+          }
+        }
       },
       () => {
         this.registerForm.reset()
